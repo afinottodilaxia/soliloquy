@@ -1,20 +1,12 @@
 import useNavigateIfTokenExists from '../hooks/useNavigateIfTokenExists';
 import useSignup from '../hooks/useSignup';
+import SignupForm from '../components/SignupForm';
 import { Link } from 'react-router-dom';
-import InputField from '../components/InputField';
 
 function SignupPage() {
   const { handleSignup, isLoading, signupMessage, error } = useSignup();
   useNavigateIfTokenExists();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleSignup(
-      e.target.displayName.value,
-      e.target.email.value,
-      e.target.password.value
-    );
-  };
   return (
     <div className="container">
       <div className="row">
@@ -34,14 +26,7 @@ function SignupPage() {
                   {error}
                 </div>
               )}
-              <form onSubmit={handleSubmit}>
-                <InputField label="Email" type="email" id="email" />
-                <InputField label="Display Name" type="text" id="displayName" />
-                <InputField label="Password" type="password" id="password" />
-                <div className="form-group mb-3">
-                  <button className="btn btn-primary">Sign Up</button>
-                </div>
-              </form>
+              <SignupForm handleSignup={handleSignup} />
             </div>
           </div>
         </div>
