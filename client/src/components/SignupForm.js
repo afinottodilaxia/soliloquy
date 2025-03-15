@@ -1,4 +1,4 @@
-import InputField from './InputField';
+import LabeledInputField from './LabeledInputField';
 
 function SignupForm({ handleSignup }) {
   const handleSubmit = (e) => {
@@ -12,9 +12,9 @@ function SignupForm({ handleSignup }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <InputField label="Email" type="email" id="email" />
-      <InputField label="Display Name" type="text" id="displayName" />
-      <InputField label="Password" type="password" id="password" />
+      <LabeledInputField label="Email" type="email" id="email" />
+      <LabeledInputField label="Display Name" type="text" id="displayName" />
+      <LabeledInputField label="Password" type="password" id="password" />
       <div className="form-group mb-3">
         <button className="btn btn-primary">Sign Up</button>
       </div>
