@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
-import InputField from './InputField';
+import LabeledInputField from './LabeledInputField';
 
 function LoginForm({ email, setEmail, password, setPassword, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
-      <InputField
+      <LabeledInputField
         label="Email"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         id="email"
       />
-      <InputField
+      <LabeledInputField
         label="Password"
         type="password"
         value={password}
