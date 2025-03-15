@@ -1,7 +1,8 @@
 import useNavigateIfTokenExists from '../hooks/useNavigateIfTokenExists';
 import useSignup from '../hooks/useSignup';
 import SignupForm from '../components/SignupForm';
-import { Link } from 'react-router-dom';
+import SignupSuccessMessage from '../components/SignupSuccessMessage';
+import SignupErrorMessage from '../components/SignupErrorMessage';
 
 function SignupPage() {
   const { handleSignup, isLoading, signupMessage, error } = useSignup();
@@ -16,16 +17,8 @@ function SignupPage() {
               <h4>Sign Up</h4>
             </div>
             <div className="card-body">
-              {signupMessage && (
-                <div className="alert alert-success" role="alert">
-                  {signupMessage} Please <Link to="/login">login</Link>
-                </div>
-              )}
-              {error && (
-                <div className="alert alert-success" role="alert">
-                  {error}
-                </div>
-              )}
+              <SignupSuccessMessage signupMessage={signupMessage} />
+              <SignupErrorMessage error={error} />
               <SignupForm handleSignup={handleSignup} />
             </div>
           </div>
